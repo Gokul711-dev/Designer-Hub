@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheatsheets | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .cheatsheet-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .cheatsheet-icon {
+            font-size: 3rem;
+            background: rgba(99, 102, 241, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 1px solid var(--accent-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="../start-here.html">Start Here</a>
+                <a href="../learning-paths.html">Roadmaps</a>
+                <a href="../ui-ux/index.html">UI/UX</a>
+                <a href="../tools/index.html">Tools</a>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../community/index.html">Community</a>
+                <a href="../cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: var(--space-xl);">
+        <div style="text-align: center; margin-bottom: var(--space-lg);">
+            <h1>Quick Reference Cheatsheets</h1>
+            <p style="color: var(--text-secondary); font-size: 1.25rem;">High-value downloads and interactive technical
+                guides.</p>
+        </div>
+
+        <div class="silo-grid">
+            <a href="figma-shortcuts.html" class="card cheatsheet-card">
+                <div class="cheatsheet-icon">⌨️</div>
+                <div>
+                    <h3>Figma Shortcuts</h3>
+                    <p>Essential keyboard shortcuts for speed-designing.</p>
+                </div>
+            </a>
+
+            <a href="social-media-2026.html" class="card cheatsheet-card">
+                <div class="cheatsheet-icon">📏</div>
+                <div>
+                    <h3>Social Media Sizes 2026</h3>
+                    <p>Updated dimensions for every major platform.</p>
+                </div>
+            </a>
+
+            <a href="css-unit-converter.html" class="card cheatsheet-card">
+                <div class="cheatsheet-icon">🔢</div>
+                <div>
+                    <h3>CSS Unit Converter</h3>
+                    <p>A quick-reference table for PX to REM/EM conversion.</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="key-note" style="text-align: center;">
+            <h3>Downloadable PDFs</h3>
+            <p>Every cheatsheet is available as a printable high-resolution PDF for the Resource Locker members.</p>
+            <a href="../index.html" class="btn btn-primary" style="margin-top: var(--space-sm);">Join the Locker</a>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

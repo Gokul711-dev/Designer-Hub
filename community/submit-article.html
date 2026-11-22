@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit an Article | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="../start-here.html">Start Here</a>
+                <a href="../learning-paths.html">Roadmaps</a>
+                <a href="../ui-ux/index.html">UI/UX</a>
+                <a href="../tools/index.html">Tools</a>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../community/index.html">Community</a>
+                <a href="../cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: var(--space-xl);">
+        <article class="main-article" style="margin: 0 auto; max-width: 600px;">
+            <header style="margin-bottom: var(--space-lg); text-align: center;">
+                <h1>Submit Your Article</h1>
+                <p id="authNotice" style="color: var(--text-secondary);">You must be logged in to contribute.</p>
+            </header>
+
+            <form id="submissionForm" class="card" style="display: none; flex-direction: column; gap: var(--space-sm);">
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Title</label>
+                    <input type="text" id="postTitle" required placeholder="e.g. Mastering Figma Auto-Layout"
+                        style="width: 100%; padding: 0.8rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; color: white;">
+                </div>
+
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Display Author Name</label>
+                    <input type="text" id="postAuthor" readonly
+                        style="width: 100%; padding: 0.8rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-tertiary);">
+                </div>
+
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Category</label>
+                    <select id="postCategory"
+                        style="width: 100%; padding: 0.8rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; color: white;">
+                        <option value="UI/UX">UI/UX</option>
+                        <option value="Design Systems">Design Systems</option>
+                        <option value="Brand Identity">Brand Identity</option>
+                        <option value="Tools">Tools Hub</option>
+                        <option value="Career">Career Tips</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Article Content</label>
+                    <textarea id="postContent" required rows="10"
+                        placeholder="Type or paste your article content here..."
+                        style="width: 100%; padding: 0.8rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; color: white; resize: vertical;"></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn btn-primary" style="margin-top: var(--space-sm);">Submit
+                    for Approval</button>
+                <div id="statusMsg" style="margin-top: 10px; font-size: 0.9rem; text-align: center;"></div>
+            </form>
+
+            <div id="loginCTA" style="text-align: center; margin-top: 20px;">
+                <a href="../auth/login.html" class="btn btn-primary">Login to Submit</a>
+            </div>
+        </article>
+    </main>
+
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        const form = document.getElementById('submissionForm');
+        const loginCTA = document.getElementById('loginCTA');
+        const postAuthor = document.getElementById('postAuthor');
+
+        async function initSubmission() {
+            const { data: { session } } = await getSession();
+            if (session) {
+                form.style.display = 'flex';
+                loginCTA.style.display = 'none';
+
+                const { data: profile } = await getProfile(session.user.id);
+                postAuthor.value = profile?.username || session.user.email;
+            }
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const statusMsg = document.getElementById('statusMsg');
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Submitting...';
+
+            const postData = {
+                title: document.getElementById('postTitle').value,
+                author: postAuthor.value,
+                category: document.getElementById('postCategory').value,
+                content: document.getElementById('postContent').value
+            };
+
+            const { error } = await submitPost(postData);
+
+            if (error) {
+                statusMsg.style.color = '#ef4444';
+                statusMsg.innerText = 'Error: ' + error.message;
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Submit for Approval';
+            } else {
+                statusMsg.style.color = '#10b981';
+                statusMsg.innerText = 'Submitted! Redirecting...';
+                setTimeout(() => { window.location.href = '../community/index.html'; }, 2000);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', initSubmission);
+    </script>
+</body>
+
+</html>

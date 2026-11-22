@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignersHub | The Library of Full Stack Design</title>
+    <meta name="description"
+        content="A structured hub for learning UI/UX, Branding, Systems, and Design Tools. Built for the modern Full Stack Designer.">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="start-here.html">Start Here</a>
+                <a href="learning-paths.html">Roadmaps</a>
+                <a href="ui-ux/index.html">UI/UX</a>
+                <a href="tools/index.html">Tools</a>
+                <a href="blog/index.html">Blog</a>
+                <a href="community/index.html">Community</a>
+                <a href="cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-dashboard container">
+            <h1>The Library of <br><span style="color: var(--accent-primary);">Design Knowledge.</span></h1>
+            <p>Every complex design topic organized into structured series, technical guides, and actionable
+                cheatsheets.</p>
+            <div class="hero-actions">
+                <a href="start-here.html" class="btn btn-primary">Browse the Library</a>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 style="margin-bottom: var(--space-md); text-align: center;">Knowledge Silos</h2>
+            <div class="silo-grid">
+                <a href="ui-ux/index.html" class="card silo-card">
+                    <div class="icon">✨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Master interfaces, user experience, and conversion-centered product design.</p>
+                </a>
+                <a href="design-systems/index.html" class="card silo-card">
+                    <div class="icon">🧩</div>
+                    <h3>Design Systems</h3>
+                    <p>Build scalable documentation and component libraries using Atomic Design principles.</p>
+                </a>
+                <a href="brand-identity/index.html" class="card silo-card">
+                    <div class="icon">🖋️</div>
+                    <h3>Brand Identity</h3>
+                    <p>Craft voices, visual strategies, and comprehensive brand guidelines that stand out.</p>
+                </a>
+                <a href="tools/index.html" class="card silo-card">
+                    <div class="icon">⚙️</div>
+                    <h3>The Tools Hub</h3>
+                    <p>Technical comparisons and mastery guides for Figma, Penpot, Affinity, and more.</p>
+                </a>
+                <a href="cheatsheets/index.html" class="card silo-card">
+                    <div class="icon">📝</div>
+                    <h3>Quick Cheatsheets</h3>
+                    <p>High-value reference guides for typography, grid systems, and social sizes.</p>
+                </a>
+                <a href="learning-paths.html" class="card silo-card">
+                    <div class="icon">🗺️</div>
+                    <h3>Learning Paths</h3>
+                    <p>Curated roadmaps to take you from a curious beginner to a professional designer.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: var(--space-xl);">
+            <div class="card"
+                style="background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px dashed var(--accent-primary); text-align: center;">
+                <h3 style="margin-bottom: var(--space-xs);">Join the Resource Locker</h3>
+                <p style="margin-bottom: var(--space-md);">Get exclusive access to UI kits, icons, and templates
+                    delivered to your inbox.</p>
+                <form onsubmit="return false;"
+                    style="display: flex; gap: 1rem; justify-content: center; max-width: 500px; margin: 0 auto;">
+                    <input type="email" placeholder="you@example.com"
+                        style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-primary); color: white;">
+                    <button class="btn btn-primary">Join Now</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="border-top: 1px solid var(--border-color); padding: var(--space-lg) 0; color: var(--text-tertiary); font-size: 0.9rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <p>&copy; 2026 DesignersHub. Built for Full Stack Designers.</p>
+            <div style="display: flex; gap: var(--space-md);">
+                <a href="https://twitter.com/DesignersHub" target="_blank">Twitter</a>
+                <a href="https://instagram.com/DesignersHub" target="_blank">Instagram</a>
+                <a href="https://github.com/DesignersHub" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/database.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

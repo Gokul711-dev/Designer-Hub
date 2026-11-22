@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Paths | DesignersHub</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .path-step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .path-step::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            width: 2px;
+            height: calc(100% + var(--space-lg));
+            background: var(--border-color);
+            z-index: 1;
+        }
+
+        .path-step:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="start-here.html">Start Here</a>
+                <a href="learning-paths.html" class="active">Roadmaps</a>
+                <a href="ui-ux/index.html">UI/UX</a>
+                <a href="tools/index.html">Tools</a>
+                <a href="blog/index.html">Blog</a>
+                <a href="community/index.html">Community</a>
+                <a href="cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: var(--space-xl);">
+        <h1 style="text-align: center; margin-bottom: var(--space-lg);">Structured Roadmaps</h1>
+
+        <div class="content-wrapper" style="grid-template-columns: 1fr;">
+            <div class="main-article" style="max-width: 900px; margin: 0 auto;">
+
+                <h2>The Zero to Hero UI Designer Path</h2>
+                <p style="margin-bottom: var(--space-md);">Follow this step-by-step curriculum to master interface
+                    design from scratch.</p>
+
+                <div class="path-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Master the Interface</h3>
+                        <p>Learn the basics of Figma or Penpot. Understand layers, components, and auto-layout.</p>
+                        <a href="ui-ux/zero-to-hero.html" style="color: var(--accent-primary);">View Module &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Visual Fundamentals</h3>
+                        <p>Apply the 8pt grid system, typography scales, and color theory to your layouts.</p>
+                        <a href="ui-ux/8pt-grid-system.html" style="color: var(--accent-primary);">View Module
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Building Systems</h3>
+                        <p>Transition from individual screens to scalable Design Systems using Atomic Design.</p>
+                        <a href="design-systems/index.html" style="color: var(--accent-primary);">View Module &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h3>Developer Handoff</h3>
+                        <p>Learn how to document tokens and export assets so developers love working with you.</p>
+                        <a href="design-systems/design-tokens.html" style="color: var(--accent-primary);">View Module
+                            &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/database.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

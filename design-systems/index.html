@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Systems Hub | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="../start-here.html">Start Here</a>
+                <a href="../learning-paths.html">Roadmaps</a>
+                <a href="../ui-ux/index.html">UI/UX</a>
+                <a href="../tools/index.html">Tools</a>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../community/index.html">Community</a>
+                <a href="../cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h4>System Architecture</h4>
+                <ul class="sidebar-list">
+                    <li><a href="index.html" class="active">Systems Overview</a></li>
+                    <li><a href="atomic-design.html">Atomic Design Principles</a></li>
+                    <li><a href="design-tokens.html">Design Tokens & Handoff</a></li>
+                </ul>
+            </aside>
+
+            <article class="main-article">
+                <h1 style="margin-bottom: var(--space-sm);">Design Systems & Scalability</h1>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: var(--space-md);">
+                    Learn how to build scalable components, maintainable documentation, and bridges between design and
+                    code.
+                </p>
+
+                <div class="card" style="margin-bottom: var(--space-md);">
+                    <h3>Atomic Design (Brad Frost)</h3>
+                    <p>Building from Atoms up to Molecules, Organisms, and Templates. The foundation of modular design.
+                    </p>
+                </div>
+
+                <div class="key-note">
+                    <h3>The Value of Systems</h3>
+                    <p>A designer who can build a system is 10x more valuable than a designer who can only build a
+                        screen.</p>
+                </div>
+
+                <h2>Technical Guides</h2>
+                <div class="silo-grid">
+                    <a href="atomic-design.html" class="card">
+                        <h3>Atomic Design Principles</h3>
+                        <p>How to structure your Figma files and code libraries for maximum reuse.</p>
+                    </a>
+                    <a href="design-tokens.html" class="card">
+                        <h3>Design Tokens & Handoff</h3>
+                        <p>Using variables for colors, spacing, and typography to sync design and code.</p>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

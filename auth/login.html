@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body
+    style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg-primary);">
+
+    <div class="card" style="width: 100%; max-width: 400px; padding: var(--space-lg);">
+        <div style="text-align: center; margin-bottom: var(--space-md);">
+            <a href="../index.html" class="logo" style="font-size: 1.5rem;">DESIGNERS HUB</a>
+            <h2 style="margin-top: 10px;">Welcome Back</h2>
+            <p style="color: var(--text-secondary);">Access your designer profile.</p>
+        </div>
+
+        <form id="loginForm" style="display: flex; flex-direction: column; gap: var(--space-sm);">
+            <div class="form-group">
+                <label style="display: block; margin-bottom: 8px;">Email</label>
+                <input type="email" id="email" required placeholder="design@example.com"
+                    style="width: 100%; padding: 0.8rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; color: white;">
+            </div>
+            <div class="form-group">
+                <label style="display: block; margin-bottom: 8px;">Password</label>
+                <input type="password" id="password" required placeholder="••••••••"
+                    style="width: 100%; padding: 0.8rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; color: white;">
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-primary" style="margin-top: 10px;">Login</button>
+            <div id="statusMsg" style="text-align: center; font-size: 0.9rem; margin-top: 10px;"></div>
+        </form>
+
+        <p style="text-align: center; margin-top: var(--space-md); font-size: 0.9rem; color: var(--text-tertiary);">
+            Don't have an account? <a href="signup.html" style="color: var(--accent-primary);">Sign Up</a>
+        </p>
+    </div>
+
+    <script src="../assets/js/database.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const msg = document.getElementById('statusMsg');
+
+            btn.disabled = true;
+            btn.innerText = 'Logging in...';
+            msg.innerText = '';
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const { data, error } = await signIn(email, password);
+
+            if (error) {
+                msg.style.color = '#ef4444';
+                msg.innerText = error.message;
+                btn.disabled = false;
+                btn.innerText = 'Login';
+            } else {
+                msg.style.color = '#10b981';
+                msg.innerText = 'Success! Redirecting...';
+                setTimeout(() => { window.location.href = '../index.html'; }, 1500);
+            }
+        });
+    </script>
+</body>
+
+</html>

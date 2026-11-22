@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Zero to Hero UI Designer",
+    "url": "ui-ux/zero-to-hero.html",
+    "category": "UI/UX",
+    "tags": ["roadmap", "career", "figma"]
+  },
+  {
+    "title": "8pt Grid System",
+    "url": "ui-ux/8pt-grid-system.html",
+    "category": "UI/UX",
+    "tags": ["layout", "spacing", "developer-handoff"]
+  },
+  {
+    "title": "Atomic Design Principles",
+    "url": "design-systems/atomic-design.html",
+    "category": "Design Systems",
+    "tags": ["architecture", "scaling", "documentation"]
+  },
+  {
+    "title": "Figma vs Penpot",
+    "url": "tools/figma-vs-penpot.html",
+    "category": "Tools",
+    "tags": ["comparison", "collaboration", "open-source"]
+  },
+  {
+    "title": "Social Media Sizes 2026",
+    "url": "cheatsheets/social-media-2026.html",
+    "category": "Cheatsheets",
+    "tags": ["reference", "assets", "dimensions"]
+  }
+]

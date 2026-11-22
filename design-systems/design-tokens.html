@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Tokens & Handoff | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="../start-here.html">Start Here</a>
+                <a href="../learning-paths.html">Roadmaps</a>
+                <a href="../ui-ux/index.html">UI/UX</a>
+                <a href="../tools/index.html">Tools</a>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../community/index.html">Community</a>
+                <a href="../cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h4>System Architecture</h4>
+                <ul class="sidebar-list">
+                    <li><a href="index.html">Systems Overview</a></li>
+                    <li><a href="atomic-design.html">Atomic Design Principles</a></li>
+                    <li><a href="design-tokens.html" class="active">Design Tokens & Handoff</a></li>
+                </ul>
+            </aside>
+
+            <article class="main-article">
+                <span style="color: var(--accent-primary); font-weight: 700; text-transform: uppercase;">Handoff
+                    Guide</span>
+                <h1 style="margin-bottom: var(--space-sm);">Design Tokens: The Language of Systems</h1>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: var(--space-md);">How to
+                    bridge the gap between design and development using semantic variables.</p>
+
+                <section>
+                    <h2>What are Design Tokens?</h2>
+                    <p>Design tokens are the visual atoms of a design system. They are name-value pairs that represent
+                        visual properties like colors, spacing, and typography. Instead of a hex code like `#6366f1`,
+                        you use a token like `color-primary-600`.</p>
+
+                    <div class="key-note">
+                        <h3>The Layer of Abstraction</h3>
+                        <p>By using tokens, you can change your entire brand color by updating a single variable value.
+                            This is crucial for multi-platform support (Web, iOS, Android) and themes (Light/Dark mode).
+                        </p>
+                    </div>
+                </section>
+
+                <section style="margin-top: var(--space-lg);">
+                    <h2>Naming Conventions</h2>
+                    <p>Don't name tokens after their values (e.g., `red`). Name them after their
+                        <strong>function</strong> (e.g., `text-error`). This is called <strong>Semantic Naming</strong>.
+                    </p>
+                    <ul>
+                        <li><strong>Global Tokens:</strong> Raw values (`color-blue-500`)</li>
+                        <li><strong>Alias/Semantic Tokens:</strong> Functional purpose (`button-primary-bg`)</li>
+                        <li><strong>Component-Specific Tokens:</strong> Tied to a component (`navbar-link-active`)</li>
+                    </ul>
+                </section>
+
+                <div class="pro-tip">
+                    <h3>Pro Tools Tip</h3>
+                    <p>Figma's native "Variables" feature is the best way to manage tokens. It allows you to create
+                        aliases and export them directly to JSON for your dev team.</p>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-between; margin-top: var(--space-lg); border-top: 1px solid var(--border-color); padding-top: var(--space-md);">
+                    <a href="atomic-design.html" style="color: var(--text-tertiary);">&larr; Previous Lesson</a>
+                    <a href="index.html" style="color: var(--accent-primary); font-weight: 600;">Back to Hub &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

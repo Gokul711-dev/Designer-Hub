@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 8pt Grid System | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="../start-here.html">Start Here</a>
+                <a href="../learning-paths.html">Roadmaps</a>
+                <a href="../ui-ux/index.html">UI/UX</a>
+                <a href="../tools/index.html">Tools</a>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../community/index.html">Community</a>
+                <a href="../cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h4>Learning Path</h4>
+                <ul class="sidebar-list">
+                    <li><a href="index.html">UI/UX Overview</a></li>
+                    <li><a href="zero-to-hero.html">The UI Career Roadmap</a></li>
+                </ul>
+                <h4 style="margin-top: var(--space-md);">Visual Design</h4>
+                <ul class="sidebar-list">
+                    <li><a href="8pt-grid-system.html" class="active">The 8pt Grid System</a></li>
+                    <li><a href="typography-system.html">Typography Systems</a></li>
+                </ul>
+            </aside>
+
+            <article class="main-article">
+                <span style="color: var(--accent-secondary); font-weight: 700; text-transform: uppercase;">Technical
+                    Guide</span>
+                <h1 style="margin-bottom: var(--space-sm);">The 8pt Grid System</h1>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: var(--space-md);">Why
+                    developers love it, and how to use it to create perfectly balanced layouts.</p>
+
+                <section>
+                    <h2>What is it?</h2>
+                    <p>The 8pt grid system uses increments of 8 (8, 16, 24, 32, 40...) to define dimensions, padding,
+                        and margins of elements. By following this rule, you eliminate "random" spacing and ensure a
+                        logical hierarchy.</p>
+
+                    <div class="key-note">
+                        <h3>Why 8?</h3>
+                        <p>Most screen resolutions are divisible by 8. Using an 8pt grid makes scaling for different
+                            screen sizes (high-density displays) much cleaner, preventing half-pixel issues that cause
+                            blurring.</p>
+                    </div>
+                </section>
+
+                <section style="margin-top: var(--space-lg);">
+                    <h2>Hard Grid vs. Soft Grid</h2>
+                    <p><strong>Hard Grid:</strong> Every element is placed on 8pt increments. This is common in print
+                        design.</p>
+                    <p><strong>Soft Grid:</strong> Individual elements can have any size, but the <strong>spacing
+                            between them</strong> must be in increments of 8. This is the industry standard for modern
+                        UI/UX.</p>
+                </section>
+
+                <div class="pro-tip">
+                    <h3>Pro Spacing Tip</h3>
+                    <p>In Figma, set your "Big Nudge" to 8pt (Preferences > Nudge Amount). Now, holding Shift + Arrow
+                        keys will move elements exactly 8 pixels, keeping your grid perfect.</p>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-between; margin-top: var(--space-lg); border-top: 1px solid var(--border-color); padding-top: var(--space-md);">
+                    <a href="zero-to-hero.html" style="color: var(--text-tertiary);">&larr; Previous Lesson</a>
+                    <a href="typography-system.html" style="color: var(--accent-primary); font-weight: 600;">Next:
+                        Typography Systems &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

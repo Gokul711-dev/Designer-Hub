@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Unit Converter | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--space-md);
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="../start-here.html">Start Here</a>
+                <a href="../learning-paths.html">Roadmaps</a>
+                <a href="../ui-ux/index.html">UI/UX</a>
+                <a href="../tools/index.html">Tools</a>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../community/index.html">Community</a>
+                <a href="../cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: var(--space-xl);">
+        <article class="main-article" style="margin: 0 auto;">
+            <span style="color: var(--accent-primary); font-weight: 700; text-transform: uppercase;">Technical
+                Table</span>
+            <h1 style="margin-bottom: var(--space-sm);">PX to REM Converter Table</h1>
+            <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: var(--space-lg);">Based on a 16px
+                root font size. Use these values for scalable typography in your designs.</p>
+
+            <div class="card" style="padding: 0;">
+                <table>
+                    <thead>
+                        <tr style="background: var(--bg-tertiary);">
+                            <th>Pixels (PX)</th>
+                            <th>REM Units</th>
+                            <th>Common Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8px</td>
+                            <td>0.5rem</td>
+                            <td>Small Spacing / Microtext</td>
+                        </tr>
+                        <tr>
+                            <td>12px</td>
+                            <td>0.75rem</td>
+                            <td>Subtitles / Helper Text</td>
+                        </tr>
+                        <tr>
+                            <td>14px</td>
+                            <td>0.875rem</td>
+                            <td>Small Body Copy</td>
+                        </tr>
+                        <tr style="color: var(--accent-primary); font-weight: 700;">
+                            <td>16px</td>
+                            <td>1rem</td>
+                            <td>Standard Body Text</td>
+                        </tr>
+                        <tr>
+                            <td>20px</td>
+                            <td>1.25rem</td>
+                            <td>Large Body / Small Headers</td>
+                        </tr>
+                        <tr>
+                            <td>24px</td>
+                            <td>1.5rem</td>
+                            <td>H3 Headers</td>
+                        </tr>
+                        <tr>
+                            <td>32px</td>
+                            <td>2rem</td>
+                            <td>H2 Headers</td>
+                        </tr>
+                        <tr>
+                            <td>48px</td>
+                            <td>3rem</td>
+                            <td>H1 Headers</td>
+                        </tr>
+                        <tr>
+                            <td>64px</td>
+                            <td>4rem</td>
+                            <td>Hero Title</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pro-tip" style="margin-top: var(--space-lg);">
+                <h3>Why REM?</h3>
+                <p>Using REM (Root EM) ensures that your site's font scales relative to the user's browser settings.
+                    This is much better for accessibility than fixed Pixel values.</p>
+            </div>
+
+            <div style="display: flex; justify-content: center; margin-top: var(--space-lg);">
+                <a href="index.html" class="btn btn-primary">&larr; Back to Cheatsheets</a>
+            </div>
+        </article>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

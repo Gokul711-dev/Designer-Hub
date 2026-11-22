@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links" id="navLinks">
+                <!-- Links will be injected by main.js or locally -->
+                <a href="../index.html">Dashboard</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: var(--space-xl);">
+        <article class="main-article" style="margin: 0 auto; max-width: 600px;">
+            <header style="margin-bottom: var(--space-lg); text-align: center;">
+                <h1>Profile Settings</h1>
+                <p style="color: var(--text-secondary);">Manage your unique username and account details.</p>
+            </header>
+
+            <div class="card" style="display: flex; flex-direction: column; gap: var(--space-md);">
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Unique Username</label>
+                    <input type="text" id="username" placeholder="loading..."
+                        style="width: 100%; padding: 0.8rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; color: white;">
+                    <p style="font-size: 0.8rem; color: var(--text-tertiary); margin-top: 5px;">This is how you will
+                        appear when contributing articles.</p>
+                </div>
+
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Email Address</label>
+                    <input type="text" id="email" disabled
+                        style="width: 100%; padding: 0.8rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-tertiary);">
+                </div>
+
+                <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-sm);">
+                    <button id="saveBtn" class="btn btn-primary" style="flex: 1;">Save Changes</button>
+                    <button id="logoutBtn" class="btn" style="border: 1px solid #ef4444; color: #ef4444; flex: 1;">Log
+                        Out</button>
+                </div>
+                <div id="statusMsg" style="text-align: center; font-size: 0.9rem;"></div>
+            </div>
+        </article>
+    </main>
+
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        let currentUserId = null;
+
+        async function initProfile() {
+            const { data: { session } } = await getSession();
+
+            if (!session) {
+                window.location.href = '../auth/login.html';
+                return;
+            }
+
+            currentUserId = session.user.id;
+            document.getElementById('email').value = session.user.email;
+
+            const { data: profile } = await getProfile(currentUserId);
+            if (profile) {
+                document.getElementById('username').value = profile.username || '';
+            }
+        }
+
+        document.getElementById('saveBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('saveBtn');
+            const msg = document.getElementById('statusMsg');
+            const newUsername = document.getElementById('username').value;
+
+            btn.disabled = true;
+            btn.innerText = 'Saving...';
+
+            const { error } = await updateProfile(currentUserId, { username: newUsername });
+
+            if (error) {
+                msg.style.color = '#ef4444';
+                msg.innerText = error.message;
+            } else {
+                msg.style.color = '#10b981';
+                msg.innerText = 'Profile updated successfully!';
+            }
+            btn.disabled = false;
+            btn.innerText = 'Save Changes';
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            await signOut();
+            window.location.href = '../index.html';
+        });
+
+        document.addEventListener('DOMContentLoaded', initProfile);
+    </script>
+</body>
+
+</html>

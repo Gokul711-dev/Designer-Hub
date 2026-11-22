@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer's Blog | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="../start-here.html">Start Here</a>
+                <a href="../learning-paths.html">Roadmaps</a>
+                <a href="../ui-ux/index.html">UI/UX</a>
+                <a href="../tools/index.html">Tools</a>
+                <a href="index.html" class="active">Blog</a>
+                <a href="../community/index.html">Community</a>
+                <a href="../cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: var(--space-xl);">
+        <header
+            style="margin-bottom: var(--space-lg); text-align: center; position: static; background: none; border: none;">
+            <h1>The Hub Blog</h1>
+            <p style="color: var(--text-secondary); font-size: 1.25rem; margin-bottom: var(--space-md);">Articles,
+                insights, and stories from the designer community.</p>
+            <a href="../community/submit-article.html" class="btn btn-primary">Submit an Article</a>
+        </header>
+
+        <div class="blog-grid">
+            <!-- Featured Blog Post -->
+            <a href="future-of-ai-design.html" class="card blog-card">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
+                    alt="AI Design">
+                <div class="blog-meta">
+                    <span>Feb 16, 2026</span>
+                    <span>•</span>
+                    <span>6 min read</span>
+                </div>
+                <h3>The Future of AI in Product Design</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 10px;">How generative AI is
+                    shifting our role from pixel-pushers to strategic curators.</p>
+                <span style="color: var(--accent-primary); font-weight: 600; margin-top: auto; padding-top: 1rem;">Read
+                    More &rarr;</span>
+            </a>
+
+            <!-- Blog Post 2 -->
+            <a href="#" class="card blog-card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
+                    alt="Code for designers">
+                <div class="blog-meta">
+                    <span>Feb 10, 2026</span>
+                    <span>•</span>
+                    <span>4 min read</span>
+                </div>
+                <h3>Why Designers Should Learn CSS Grid</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 10px;">Understanding the layout
+                    mechanics of the web will make you a better designer.</p>
+                <span style="color: var(--accent-primary); font-weight: 600; margin-top: auto; padding-top: 1rem;">Read
+                    More &rarr;</span>
+            </a>
+
+            <!-- Blog Post 3 -->
+            <a href="#" class="card blog-card">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800"
+                    alt="Portfolio">
+                <div class="blog-meta">
+                    <span>Feb 5, 2026</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+                <h3>Building a Portfolio That Actually Gets You Hired</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 10px;">Stop focusing on Dribbble
+                    shots and start showing your process and impact.</p>
+                <span style="color: var(--accent-primary); font-weight: 600; margin-top: auto; padding-top: 1rem;">Read
+                    More &rarr;</span>
+            </a>
+        </div>
+    </main>
+
+    <footer
+        style="margin-top: var(--space-xl); border-top: 1px solid var(--border-color); padding: var(--space-lg) 0; color: var(--text-tertiary); font-size: 0.9rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <p>&copy; 2026 DesignersHub. Built for Full Stack Designers.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        async function loadDynamicPosts() {
+            const blogGrid = document.querySelector('.blog-grid');
+            if (typeof fetchApprovedPosts === 'function' && blogGrid) {
+                const posts = await fetchApprovedPosts();
+
+                posts.forEach(post => {
+                    const card = document.createElement('div');
+                    card.className = 'card blog-card';
+                    card.style.display = 'flex';
+                    card.style.flexDirection = 'column';
+                    card.innerHTML = `
+                        <div class="blog-meta">
+                            <span>${new Date(post.created_at).toLocaleDateString()}</span>
+                            <span>•</span>
+                            <span>Community Post</span>
+                        </div>
+                        <h3>${post.title}</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 10px; flex-grow: 1;">
+                            ${post.content.substring(0, 150)}...
+                        </p>
+                        <div class="author-badge" style="margin-top: 15px;">
+                            <div class="author-avatar">${(post.profiles?.username || post.author_name || 'U')[0]}</div>
+                            <span>${post.profiles?.username || post.author_name || 'User'}</span>
+                        </div>
+                        <span style="color: var(--accent-primary); font-weight: 600; margin-top: 1rem; cursor: pointer;">Read Detailed Post &rarr;</span>
+                    `;
+                    blogGrid.appendChild(card);
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadDynamicPosts);
+    </script>
+</body>
+
+</html>

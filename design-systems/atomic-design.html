@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomic Design Principles | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="../start-here.html">Start Here</a>
+                <a href="../learning-paths.html">Roadmaps</a>
+                <a href="../ui-ux/index.html">UI/UX</a>
+                <a href="../tools/index.html">Tools</a>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../community/index.html">Community</a>
+                <a href="../cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h4>System Architecture</h4>
+                <ul class="sidebar-list">
+                    <li><a href="index.html">Systems Overview</a></li>
+                    <li><a href="atomic-design.html" class="active">Atomic Design Principles</a></li>
+                    <li><a href="design-tokens.html">Design Tokens & Handoff</a></li>
+                </ul>
+            </aside>
+
+            <article class="main-article">
+                <span style="color: var(--accent-secondary); font-weight: 700; text-transform: uppercase;">Architecture
+                    Guide</span>
+                <h1 style="margin-bottom: var(--space-sm);">Atomic Design: Building from Atoms to Pages</h1>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: var(--space-md);">Master the
+                    methodology for creating scalable and maintainable design systems, popularized by Brad Frost.</p>
+
+                <section>
+                    <h2>The Chemistry of UI</h2>
+                    <p>In Atomic Design, we break down our interface into five distinct levels:</p>
+                    <ol>
+                        <li><strong>Atoms:</strong> The smallest building blocks (Input fields, buttons, labels).</li>
+                        <li><strong>Molecules:</strong> Groups of atoms functioning together (A search bar made of a
+                            label, input, and button).</li>
+                        <li><strong>Organisms:</strong> Complex components composed of molecules and/or atoms (A
+                            navigation header).</li>
+                        <li><strong>Templates:</strong> Page-level objects that place organisms into a layout.</li>
+                        <li><strong>Pages:</strong> Specific instances of templates with real content.</li>
+                    </ol>
+
+                    <div class="key-note">
+                        <h3>Why It Works</h3>
+                        <p>Atomic design allows you to transition between abstract and concrete. You can see how a
+                            single button (Atom) affects the entire design system at the page level.</p>
+                    </div>
+                </section>
+
+                <section style="margin-top: var(--space-lg);">
+                    <h2>Implementation in Figma</h2>
+                    <p>Use <strong>Components</strong> for your Atoms and Molecules. Assemble them into <strong>Nested
+                            Components</strong> for Organisms. This ensures that a change at the Atom level ripples
+                        through your entire file instantly.</p>
+                </section>
+
+                <div class="pro-tip">
+                    <h3>Pro Handoff Tip</h3>
+                    <p>Developers love Atomic Design because it mirrors the structure of modern front-end frameworks
+                        like React and Vue, where everything is a component.</p>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-between; margin-top: var(--space-lg); border-top: 1px solid var(--border-color); padding-top: var(--space-md);">
+                    <a href="index.html" style="color: var(--text-tertiary);">&larr; Back to Hub</a>
+                    <a href="design-tokens.html" style="color: var(--accent-primary); font-weight: 600;">Next: Design
+                        Tokens &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

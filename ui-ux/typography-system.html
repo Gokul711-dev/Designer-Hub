@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Systems | DesignersHub</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <a href="../index.html" class="logo">DESIGNERS HUB</a>
+            <div class="nav-links">
+                <a href="../start-here.html">Start Here</a>
+                <a href="../learning-paths.html">Roadmaps</a>
+                <a href="../ui-ux/index.html">UI/UX</a>
+                <a href="../tools/index.html">Tools</a>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../community/index.html">Community</a>
+                <a href="../cheatsheets/index.html">Cheatsheets</a>
+            </div>
+            <div id="authContainer"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h4>Learning Path</h4>
+                <ul class="sidebar-list">
+                    <li><a href="index.html">UI/UX Overview</a></li>
+                    <li><a href="zero-to-hero.html">The UI Career Roadmap</a></li>
+                </ul>
+                <h4 style="margin-top: var(--space-md);">Visual Design</h4>
+                <ul class="sidebar-list">
+                    <li><a href="8pt-grid-system.html">The 8pt Grid System</a></li>
+                    <li><a href="typography-system.html" class="active">Typography Systems</a></li>
+                </ul>
+            </aside>
+
+            <article class="main-article">
+                <span style="color: var(--accent-primary); font-weight: 700; text-transform: uppercase;">Technical
+                    Guide</span>
+                <h1 style="margin-bottom: var(--space-sm);">Math-Based Typography Systems</h1>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: var(--space-md);">How to use
+                    mathematical ratios to create harmonious font scales for any project.</p>
+
+                <section>
+                    <h2>The Power of the Scale</h2>
+                    <p>Typography shouldn't be arbitrary. To create a system that feels right, use a <strong>Modular
+                            Scale</strong>. You start with a base size (e.g., 16px) and multiply it by a ratio (e.g.,
+                        1.25 for a Major Third) to get your headings.</p>
+
+                    <div class="key-note">
+                        <h3>Common Ratios</h3>
+                        <ul>
+                            <li><strong>1.200 (Minor Third):</strong> Subtle, professional.</li>
+                            <li><strong>1.250 (Major Third):</strong> Clear hierarchy, multi-purpose.</li>
+                            <li><strong>1.414 (Augmented Fourth):</strong> Dramatic, editorial feel.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section style="margin-top: var(--space-lg);">
+                    <h2>Accessibility (WCAG)</h2>
+                    <p>Typography isn't just about looking good; it's about being readable. Always ensure your body text
+                        has a contrast ratio of at least 4.5:1 against the background. For large text, 3:1 is
+                        acceptable.</p>
+                </section>
+
+                <div class="pro-tip">
+                    <h3>Pro Handoff Tip</h3>
+                    <p>Always use <strong>REM</strong> units for code-readiness. A base of 16px means 1rem = 16px. Tools
+                        like the "CSS Unit Converter" in our cheatsheet silo can help you calculate this instantly.</p>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-between; margin-top: var(--space-lg); border-top: 1px solid var(--border-color); padding-top: var(--space-md);">
+                    <a href="8pt-grid-system.html" style="color: var(--text-tertiary);">&larr; Previous Lesson</a>
+                    <a href="ecommerce-conversion.html" style="color: var(--accent-primary); font-weight: 600;">Next:
+                        E-commerce Conversion &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/database.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
